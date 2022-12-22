@@ -1,0 +1,44 @@
+body{
+    background-color: gray;
+    font-style:  normal;
+    font-family: MV Boli;
+    font-size: xx-large;
+    text-align: center;
+}
+h1{
+    color: darkred;
+}
+p{
+    outline-color: black;
+	font-family: Copperplate Gothic Light;
+}
+p:link{
+    color:blue;
+   }
+    
+   p:visited{
+    color:green;
+   }
+    
+   p:hover{
+    color:red;
+   }
+    
+   p:active{
+    color:yellow;
+   }
+a:link{
+    color:blue;
+   }
+    
+   a:visited{
+    color:green;
+   }
+    
+   a:hover{
+    color:red;
+   }
+    
+   a:active{
+    color:yellow;
+   }
