@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html>
-	<title>HAMED Status</title>
-<link rel="stylesheet" href="style.css" type="text/css">
-<link rel="icon" href="world (1).ico" type="image/x-icon">
-<body>
-		<h1>How can you find me ?</h1>
-<p>Click on this <a href="https://t.me/hamed_0727">Text </a>to go Hamed PV</p>
-	
-	<b>Only way you can chat with me ~ live clock-></b>
-</body>
-<body>
-	<div id="MyClockDisplay" class="clock"
-	onload="showTime()"></div>
-	<script>
-		function showTime(){
-		var date = new Date();
-		var h = date.getHours(); // 0 - 23
-		var m = date.getMinutes(); // 0 - 59
-		var s = date.getSeconds(); // 0 - 59
-		var session = "AM";
-		if(h == 0){
-		h = 12;
-		}
-		if(h > 12){
-		h = h - 12;
-		session = "PM";
-		}
-		h = (h < 10) ? "0" + h : h;
-		m = (m < 10) ? "0" + m : m;
-		s = (s < 10) ? "0" + s : s;
-		var time = h + ":" + m + ":" + s + " " + session;
-		document.getElementById("MyClockDisplay").innerText = time;
-		document.getElementById("MyClockDisplay").textContent = time;
-		setTimeout(showTime, 1000);
-		}
-		
-		showTime();
-		</script>	
-</body>
+    <head>
+        <title> Introduce :) </title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="world (1).ico" type="image/x-icon">
+    </head>
+    <body>
+        <header>
+           <h1>برات سوال بود ؟ </h1>
+        </header>
+        <div class="animated-bg"></div> 
+           <div class="centered-box">
+            <div class="telegram-container">
+                <img src="telegram-icon.ico" alt="Telegram" class="telegram-icon">
+            </div>
+            <a href="https://t.me/hamed_0727" target="_blank" class="clickable-text" onclick="changeBackground()">
+                Only way you can chat (Click)
+            </a>
+            <div class="clock" id="liveClock"></div> 
+           </div>
+           <div class="clock" id="liveClock"></div> 
+           <div class="loader"></div>
+        <script>
+            function updateClock() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    const seconds = now.getSeconds().toString().padStart(2, "0");
+    document.getElementById("liveClock").textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+setInterval(updateClock, 1000);
+updateClock(); // اجرای اولیه
+
+function changeBackground() {
+    document.querySelector(".animated-bg").classList.add("clicked");
+
+    setTimeout(() => {
+        document.querySelector(".animated-bg").classList.remove("clicked");
+    }, 5000); // بعد از ۵ ثانیه دوباره به حالت قبل برمی‌گرده
+}
+
+        </script>
+    </body>
 </html>
