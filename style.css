@@ -1,44 +1,199 @@
-body{
-    background-color: gray;
-    font-style:  normal;
-    font-family: MV Boli;
-    font-size: xx-large;
+* {
+    direction: rtl;
+    padding: 0;
+    margin: 0;
+    font-family: vazir;
+}
+header{
+    color: antiquewhite;
+    position: sticky;
+    top: 0;
+    background-color: rgb(81, 81, 81);
+    padding: 15px;
+    z-index: 1000;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    background: black;
+    position: static;
+    overflow: hidden;
+}
+
+.background-animation {
+    position: absolute;
+    width: 180%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(10, 10, 10, 0.03), rgba(128, 128, 128, 0.07), rgba(33, 33, 33, 0.8)),
+                radial-gradient(circle at 70% 70%, rgba(210, 209, 209, 0.03), rgba(255, 255, 255, 0.07), rgba(0, 0, 0, 0.8));
+    animation: bgMove 12s infinite alternate ease-in-out;
+    filter: blur(60px);
+}
+
+@keyframes bgMove {
+    0% {
+        transform: translate(-5%, -5%) rotate(0deg) scale(1.2);
+    }
+    25% {
+        transform: translate(3%, -3%) rotate(15deg) scale(1.3);
+    }
+    50% {
+        transform: translate(-3%, 5%) rotate(-10deg) scale(1.25);
+    }
+    75% {
+        transform: translate(4%, -2%) rotate(20deg) scale(1.35);
+    }
+    100% {
+        transform: translate(-2%, 4%) rotate(-5deg) scale(1.3);
+    }
+}
+
+/* استایل متن لینک‌دار */
+.clickable-text {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.clickable-text:hover {
+    color: lightgray; /* تغییر رنگ متن هنگام هاور شدن */
+}
+
+/* انیمیشن پیش‌فرض پس‌زمینه */
+@keyframes animatedBackground {
+    0% { background: radial-gradient(circle, rgba(0,0,0,0.8), rgba(50,50,50,0.6)); }
+    50% { background: radial-gradient(circle, rgba(20,20,20,0.8), rgba(70,70,70,0.6)); }
+    100% { background: radial-gradient(circle, rgba(0,0,0,0.8), rgba(50,50,50,0.6)); }
+}
+
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: animatedBackground 10s infinite linear;
+}
+
+/* حالت کلیک‌شده */
+.clicked {
+    animation: fastWhiteBackground 6s infinite linear !important;
+}
+
+/* انیمیشن سریع‌تر و سفید شدن */
+@keyframes fastWhiteBackground {
+    0% { background: rgb(45, 45, 45); }
+    50% { background: rgb(48, 47, 47); }
+    100% { background: rgb(71, 70, 70); }
+}
+
+
+.centered-box {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; /* بیشتر صفحه رو بگیره */
+    height: 30%; /* از بالا تا نزدیکی پایین صفحه */
+    background: rgba(0, 0, 0, 0.5); /* نیمه شفاف مشکی */
+    backdrop-filter: blur(15px); /* افکت تار */
+    border-radius: 15px; /* گوشه‌های گرد */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); /* سایه‌ی نرم */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
     text-align: center;
+    padding: 20px;
 }
-h1{
-    color: darkred;
+
+/* استایل ساعت */
+.clock {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #ffffff, #aaaaaa);
+    -webkit-background-clip: text;
+    color: transparent;
 }
-p{
-    outline-color: black;
-	font-family: Copperplate Gothic Light;
+
+.telegram-container {
+    position: absolute;
+    top: -35px; /* بالای باکس */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7); /* پس‌زمینه نیمه‌شفاف */
+    backdrop-filter: blur(10px); /* افکت تار */
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(209, 208, 208, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-p:link{
-    color:blue;
-   }
-    
-   p:visited{
-    color:green;
-   }
-    
-   p:hover{
-    color:red;
-   }
-    
-   p:active{
-    color:yellow;
-   }
-a:link{
-    color:blue;
-   }
-    
-   a:visited{
-    color:green;
-   }
-    
-   a:hover{
-    color:red;
-   }
-    
-   a:active{
-    color:yellow;
-   }
+
+.telegram-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: cover; /* اطمینان از نمایش کامل آیکون */
+    border-radius: 50%;
+}
+
+/* پس‌زمینه هنگام کلیک سریع‌تر سفید شود */
+.clicked {
+    animation: fastWhiteBackground 6s infinite linear !important;
+}
+
+@keyframes fastWhiteBackground {
+    0% { background: rgb(45, 45, 45); }
+    50% { background: rgb(93, 93, 93); } /* سفید شدن سریع */
+    100% { background: rgb(45, 45, 45); }
+}
+
+
+
+
+  
+.loader {
+    direction: ltr;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%);
+    display: inline-flex;
+    gap: 5px;
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    width: 35px;
+    aspect-ratio: 1;
+    box-shadow: 0 0 0 3px inset #fff;
+    animation: 2s infinite linear;
+    animation-name: l3-1,l3-2;
+    animation-delay: -1s,0s
+  }
+  .loader:after {
+    --s: -1;
+  }
+  @keyframes l3-1 {
+    0%   {border-radius:50% 0   0   50%}
+    25%  {border-radius:50% 50% 0   0  }
+    50%  {border-radius:0   50% 50% 0  }
+    75%  {border-radius:0   0   50% 50%}
+    100% {border-radius:50% 0   0   50%}
+  }
+  @keyframes l3-2{
+    0%   {transform:scaleX(var(--s,1)) rotate(0deg)}
+    100% {transform:scaleX(var(--s,1)) rotate(-360deg)}
+  }
